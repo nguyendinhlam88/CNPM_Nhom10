@@ -166,16 +166,15 @@ public class DiemDanh extends JPanel {
 				int valueSelected = bangDiemDanh.getSelectedRow();
 				if(valueSelected == -1) JOptionPane.showMessageDialog(null, "Vui lòng chọn trong bảng để điểm danh");
 				else  {
-					String tenChuHo = (String) model.getValueAt(valueSelected, 2);
+					String trangThai = (String) model.getValueAt(valueSelected, 4);
+                                        String tenChuHo = (String) model.getValueAt(valueSelected, 2);
 					buoiHop.setSoLuong(buoiHop.getSoLuong() + 1);
 					int i = 0;
 					for(HoKhau hoKhau : danhSachHoKhau) {
-						if(hoKhau.getTenChuHo().equals(tenChuHo)) {
+						if((trangThai.equals("Chưa"))&&(hoKhau.getTenChuHo().equals(tenChuHo))) {
 							hoKhau.setDiemTichLuy(hoKhau.getDiemTichLuy() + 1);
-							if(model.getRowCount() != danhSachHoKhau.size()) {
-								model.setRowCount(0);
-								capNhatBangBuoiHop(model);
-							}
+                                                        model.setRowCount(0);
+                                                        capNhatBangBuoiHop(model);
 							model.setValueAt("Tham Gia", i, 4);
 						}
 						i++;

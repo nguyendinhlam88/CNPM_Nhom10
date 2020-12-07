@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import com.mysql.jdbc.Connection;
+import java.sql.Connection;
 
 import model.BuoiHop;
 import model.HoKhau;
@@ -22,8 +22,8 @@ public class HoKhauService {
 		
 		try {
 			danhSachHoKhau = new ArrayList<HoKhau>();
-			conn = (Connection) ConnectToDB.getMysqlConnection("QuanLyDanPho");
-			sql = "SELECT * FROM HoKhau";
+			conn = (Connection) ConnectToDB.getConnection();
+			sql = "SELECT * FROM hokhautable";
 			preStatement = conn.prepareStatement(sql);
 			resultSet = preStatement.executeQuery();
 			
@@ -38,16 +38,13 @@ public class HoKhauService {
 					danhSachHoKhau.add(hoKhau);
 				}
 			}
-		} catch (ClassNotFoundException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
+                }
 		return  danhSachHoKhau;	
 	}
 	
-	public static void updateBuoiHopTable(ArrayList<BuoiHop> danhSachBuoiHop) {
-//		String sql = "UPDATE TABLE ";
-	}
+//	public static void updateBuoiHopTable(ArrayList<BuoiHop> danhSachBuoiHop) {
+////		String sql = "UPDATE TABLE ";
+//	}
 }
