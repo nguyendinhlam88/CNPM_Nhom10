@@ -72,7 +72,7 @@ public class BuoiHopService {
                 preStatement.setInt(5, buoiHop.getSoLuong());
                 preStatement.setString(6, buoiHop.getTrangThai());
                 preStatement.executeUpdate();
-
+              
             }catch (Exception e) {
                     e.printStackTrace();
                 }
