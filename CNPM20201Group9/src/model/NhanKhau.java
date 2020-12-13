@@ -1,30 +1,45 @@
 package model;
+import java.util.Date;
 
 public class NhanKhau {
-	private String idNhanKhau;
+	private int idNhanKhau;
+        private String maDinhDanh;
+        private String soHoKhau;
 	private String hoTen;
 	private String biDanh;
-	private String ngaySinh;
+	private Date ngaySinh;
 	private String noiSinh;
+        private String diaChiHienTai;
 	private String gioiTinh;
 	private String nguyenQuan;
 	private String danToc;
 	private String ngheNghiep;
 	private String noiLamViec;
 	private String soCMND;
-	private String ngayCap;
-	private String noiCap;
-	private String ngayChuyen;
-	private String noiChuyen;
+	private Date ngayCapCMND;
+	private String noiCapCMND;
 	private String ghiChu;
-	private String ngayDangKiThuongTru;
+	private Date ngayDangKiThuongTru;
 	private String noiThuongTruTruoc;
 	private String quanHeChuHo;
-	
-	public NhanKhau() {
-		
-	}
+        private String trangThai;
 
+        public String getMaDinhDanh() {
+            return maDinhDanh;
+        }
+
+        public void setMaDinhDanh(String maDinhDanh) {
+            this.maDinhDanh = maDinhDanh;
+        }
+
+        public String getSoHoKhau() {
+            return soHoKhau;
+        }
+
+        public void setSoHoKhau(String soHoKhau) {
+            this.soHoKhau = soHoKhau;
+        }
+        
 	public String getHoTen() {
 		return hoTen;
 	}
@@ -41,11 +56,11 @@ public class NhanKhau {
 		this.biDanh = biDanh;
 	}
 
-	public String getNgaySinh() {
+	public Date getNgaySinh() {
 		return ngaySinh;
 	}
 
-	public void setNgaySinh(String ngaySinh) {
+	public void setNgaySinh(Date ngaySinh) {
 		this.ngaySinh = ngaySinh;
 	}
 
@@ -57,6 +72,16 @@ public class NhanKhau {
 		this.noiSinh = noiSinh;
 	}
 
+        public String getDiaChiHienTai() {
+            return diaChiHienTai;
+        }
+
+        public void setDiaChiHienTai(String diachihientai) {
+            this.diaChiHienTai = diachihientai;
+        }
+
+        
+        
 	public String getNguyenQuan() {
 		return nguyenQuan;
 	}
@@ -97,27 +122,27 @@ public class NhanKhau {
 		this.soCMND = soCMND;
 	}
 
-	public String getNgayCap() {
-		return ngayCap;
+	public Date getNgayCapCMND() {
+		return ngayCapCMND;
 	}
 
-	public void setNgayCap(String ngayCap) {
-		this.ngayCap = ngayCap;
+	public void setNgayCapCMND(Date ngayCapCMND) {
+		this.ngayCapCMND = ngayCapCMND;
 	}
 
-	public String getNoiCap() {
-		return noiCap;
+	public String getNoiCapCMND() {
+		return noiCapCMND;
 	}
 
-	public void setNoiCap(String noiCap) {
-		this.noiCap = noiCap;
+	public void setNoiCapCMND(String noiCapCMND) {
+		this.noiCapCMND = noiCapCMND;
 	}
 
-	public String getNgayDangKiThuongTru() {
+	public Date getNgayDangKiThuongTru() {
 		return ngayDangKiThuongTru;
 	}
 
-	public void setNgayDangKiThuongTru(String ngayDangKiThuongTru) {
+	public void setNgayDangKiThuongTru(Date ngayDangKiThuongTru) {
 		this.ngayDangKiThuongTru = ngayDangKiThuongTru;
 	}
 
@@ -147,23 +172,6 @@ public class NhanKhau {
 		this.gioiTinh = gioiTinh;
 	}
 
-	
-	public String getNgayChuyen() {
-		return ngayChuyen;
-	}
-
-	public void setNgayChuyen(String ngayChuyen) {
-		this.ngayChuyen = ngayChuyen;
-	}
-
-	public String getNoiChuyen() {
-		return noiChuyen;
-	}
-
-	public void setNoiChuyen(String noiChuyen) {
-		this.noiChuyen = noiChuyen;
-	}
-
 	public String getGhiChu() {
 		return ghiChu;
 	}
@@ -172,12 +180,19 @@ public class NhanKhau {
 		this.ghiChu = ghiChu;
 	}
 
-	public String getIdNhanKhau() {
+	public int getIdNhanKhau() {
 		return idNhanKhau;
 	}
 
-	public void setIdNhanKhau(String idNhanKhau) {
+	public void setIdNhanKhau(int idNhanKhau) {
 		this.idNhanKhau = idNhanKhau;
 	}
-	
+        
+	public String getTrangThai() {
+            return trangThai;
+        }
+
+        public void setTrangThai(String trangThai) {
+            this.trangThai = trangThai;
+        }
 }

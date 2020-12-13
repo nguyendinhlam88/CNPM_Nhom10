@@ -3,7 +3,7 @@ package services;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import com.mysql.jdbc.Connection;
+import java.sql.Connection;
 import model.TaiKhoan;
 
 public class TaiKhoanService {
@@ -16,8 +16,8 @@ public class TaiKhoanService {
 		String sql;
 		
 		try {
-			conn = (Connection) ConnectToDB.getMysqlConnection("QuanLyDanPho");
-			sql = "SELECT * FROM TAIKHOAN WHERE TAIKHOAN = ? AND MATKHAU = ?";
+			conn = (Connection) ConnectToDB.getConnection();
+			sql = "SELECT * FROM taikhoantable WHERE taikhoan = ? AND matkhau = ?";
 			preStatement = conn.prepareStatement(sql);
 			preStatement.setString(1, tenTaiKhoan);
 			preStatement.setString(2, matKhau);
@@ -29,12 +29,9 @@ public class TaiKhoanService {
 				resultSet.next();
 				taiKhoan = new TaiKhoan(resultSet.getString(1), resultSet.getString(2), resultSet.getString(3), resultSet.getString(4));
 			}
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 		return  taiKhoan;	
 	}
 }

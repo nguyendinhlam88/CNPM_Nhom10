@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.Connection;
+
 import java.text.SimpleDateFormat;
 import model.BuoiHop;
 
@@ -53,6 +54,10 @@ public class BuoiHopService {
 		return  danhSachBuoiHop;	
 	}
 	
+//	public static void updateBuoiHopTable(List<BuoiHop> danhSachBuoiHop) {
+////		String sql = "Drop table BuoiHop";
+//	}
+=======
 	public static void updateBuoiHop(BuoiHop buoiHop) {
             //		String sql = "Drop table BuoiHop";
             Connection conn = null;

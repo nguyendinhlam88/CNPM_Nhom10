@@ -15,6 +15,7 @@ import javax.swing.SwingConstants;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Toolkit;
+import view.buoihop.NewJPanel;
 
 public class MainMenu extends JFrame {
 	
@@ -58,7 +59,7 @@ public class MainMenu extends JFrame {
 		JLabel lbTrangChu = new JLabel("Trang Chủ");
 		lbTrangChu.addMouseListener(new PanelButtonMouseAdapter(panTrangChu));
 		lbTrangChu.setHorizontalAlignment(SwingConstants.CENTER);
-		lbTrangChu.setIcon(new ImageIcon("images/homeIcon.png"));
+		lbTrangChu.setIcon(new ImageIcon("images/e/homeIcon.png"));
 		lbTrangChu.setBounds(0, 0, 154, 66);
 		panTrangChu.add(lbTrangChu);
 		
@@ -151,7 +152,7 @@ public class MainMenu extends JFrame {
 		lbDangXuat.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				BuoiHopService.updateBuoiHopTable(BuoiHopPanel.danhSachBuoiHop);
+				//BuoiHopService.updateBuoiHopTable(BuoiHopPanel.danhSachBuoiHop);
 				MainLogin login = new MainLogin();
 				login.setVisible(true);
 				dispose();
@@ -177,6 +178,9 @@ public class MainMenu extends JFrame {
 	// Cho các panel vào đây.
 	private void updatePanScreen(JPanel panel) {
 		buoiHopPanel = BuoiHopPanel.getInstance(panMain);
+                NewJPanel e1 = new NewJPanel(); 
+                e1.setVisible(true);
+                panMain.add(e1);
 		buoiHopPanel.setVisible(false);
 		panMain.add(buoiHopPanel);
 		if(panel != null) panel.setVisible(true);
