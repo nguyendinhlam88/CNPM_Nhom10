@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Vu
+ * @author
  */
 public class TamTruService {
     public static List<TamTru> layDanhSachTamTru(){
