@@ -23,7 +23,7 @@ import services.TamVangService;
 
 /**
  *
- * @author Vu
+ * @author
  */
 public class TamVangManagerController {
     public static String soHoKhau;
