@@ -8,7 +8,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -22,6 +24,11 @@ import model.BuoiHop;
 import utility.ReadFile;
 import utility.WriteFile;
 import javax.swing.SwingConstants;
+import model.DiemDanh;
+import model.HoKhau;
+import services.BuoiHopService;
+import services.DiemDanhService;
+import services.HoKhauService;
 
 public class ThemBuoiHopPanel extends JPanel{
 	private static ThemBuoiHopPanel instance;
@@ -145,9 +152,27 @@ public class ThemBuoiHopPanel extends JPanel{
 		btnAdd.setBounds(660, 36, 44, 49);
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				SimpleDateFormat date = new SimpleDateFormat("dd/MM/yyyy");
+                                List<HoKhau> hks = new ArrayList<HoKhau>();
+                                hks = HoKhauService.layDanhSachHoKhau();
+                                for(HoKhau hoKhau : hks) {
+                                    DiemDanhService.themDiemDanh(new DiemDanh(hoKhau.getSoHoKhau(),"BH" + (BuoiHopPanel.danhSachBuoiHop.size() + 1),"Không tham gia"));
+                                }
+				SimpleDateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
 				try {
-					BuoiHopPanel.danhSachBuoiHop.add(new BuoiHop("BH" + BuoiHopPanel.danhSachBuoiHop.size() + 1, txtChuDe.getText(), date.parse(txtTime.getText()), txtDiaDiem.getText(), 0, "Chưa diễn "));
+					SimpleDateFormat fmt1 = new SimpleDateFormat("yyyyMMdd");
+                                        long millis=System.currentTimeMillis();  
+                                        java.sql.Date now=new java.sql.Date(millis);
+                                        long tmp = Long.parseLong(fmt1.format(fmt.parse(txtTime.getText()))) - Long.parseLong(fmt1.format(now));
+                                        String s = null;
+                                        if(tmp > 0) {
+                                            s = "Chưa diễn ra";
+                                        } else if(tmp < 0) {
+                                            s = "Đã diễn ra";
+                                        } else {
+                                            s = "Đang diễn ra";
+                                        }
+                                    BuoiHopPanel.danhSachBuoiHop.add(new BuoiHop("BH" + (BuoiHopPanel.danhSachBuoiHop.size() + 1), txtChuDe.getText(), fmt.parse(txtTime.getText()), txtDiaDiem.getText(), 0, s));
+                                    new BuoiHopService().updateBuoiHop(new BuoiHop("BH" + (BuoiHopPanel.danhSachBuoiHop.size()), txtChuDe.getText(), fmt.parse(txtTime.getText()), txtDiaDiem.getText(), 0, s));
 				} catch (ParseException e1) {
 					e1.printStackTrace();
 				}
