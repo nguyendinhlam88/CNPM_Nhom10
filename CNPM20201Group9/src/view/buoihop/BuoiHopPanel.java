@@ -191,7 +191,7 @@ public class BuoiHopPanel extends JPanel {
 	
 	private void capNhatBangBuoiHop(DefaultTableModel model) {
 		for(BuoiHop buoiHop : danhSachBuoiHop) {
-			model.addRow(new Object[] {model.getRowCount(), buoiHop.getMaBuoiHop(), buoiHop.getChuDe(), new SimpleDateFormat("dd/MM/yyyy").format(buoiHop.getThoiGian()), buoiHop.getDiaDiem(), buoiHop.getSoLuong(), buoiHop.getTrangThai()});
+			model.addRow(new Object[] {model.getRowCount() + 1, buoiHop.getMaBuoiHop(), buoiHop.getChuDe(), new SimpleDateFormat("dd/MM/yyyy").format(buoiHop.getThoiGian()), buoiHop.getDiaDiem(), buoiHop.getSoLuong(), buoiHop.getTrangThai()});
 		}
 	}
 }
