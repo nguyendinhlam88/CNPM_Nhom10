@@ -226,4 +226,88 @@ public class HoKhauService {
               ex.printStackTrace();
         }   
     }       
+=======
+	}
+        
+        public static HoKhau timHoKhau(String sohokhau) {
+            HoKhauService hoKhauService = new HoKhauService();
+            List<HoKhau> danhSachHoKhau = hoKhauService.layDanhSachHoKhau();
+            for (HoKhau i : danhSachHoKhau) {
+                if ( sohokhau.equals(i.getSoHoKhau())) {
+                    return i;
+                }
+            }
+            return null;
+        }  
+    
+    public int capNhatHoKhau (HoKhau hoKhau, String sohokhau){
+        Connection conn = null;
+        PreparedStatement preStatement = null;
+        String sql;
+        SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
+        try{
+            conn = (Connection) ConnectToDB.getConnection();
+            sql="UPDATE hokhautable SET sohokhau=? ,tenchuho=?, makhuvuc=?, diachi=?, ngaytao=?, ngaychuyendi=?, lydochuyen=?, nguoithuchien=?, ghichu=? WHERE sohokhau=?";
+            preStatement=conn.prepareStatement(sql);
+            preStatement.setString(1, hoKhau.getSoHoKhau());
+            preStatement.setString(2, hoKhau.getTenChuHo());
+            preStatement.setString(3, hoKhau.getMakhuVuc());
+            preStatement.setString(4, hoKhau.getDiaChi());
+            preStatement.setString(5, fmt.format(hoKhau.getNgayTao()));
+            preStatement.setString(6, fmt.format(hoKhau.getNgayChuyenDi()));
+            preStatement.setString(7, hoKhau.getLyDoChuyen());
+            preStatement.setString(8, hoKhau.getNguoiThucHien());
+            preStatement.setString(9, hoKhau.getGhiChu());
+            preStatement.setString(10, sohokhau);
+            preStatement.executeUpdate();
+            return 1;
+        }catch (Exception ex) {
+              ex.printStackTrace();
+              return 0;
+        }   
+    }    
+    
+     public void capNhatTenChuHo(String tenChuHo, String soHoKhau){
+            Connection conn = null;
+            PreparedStatement preStatement = null;
+            String sql;
+            SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
+            try{
+                conn = (Connection) ConnectToDB.getConnection();
+                sql="UPDATE hokhautable SET tenchuho=? WHERE sohokhau=?";
+                preStatement=conn.prepareStatement(sql);
+
+                preStatement.setString(1, tenChuHo);
+                preStatement.setString(2, soHoKhau);
+
+                preStatement.executeUpdate();
+            }catch (Exception ex) {
+                 ex.printStackTrace();
+
+            }   
+       }
+        
+//               Connection con = DBConnection.getConnection();
+//    PreparedStatement s; 
+//public List<Hokhau> xuathokhau(){
+//        List<Hokhau> hokhau = new ArrayList<Hokhau>();
+//        String sql = "Select * from hokhautable;";
+//        try{
+//            s=con.prepareCall(sql);
+//            ResultSet rs=s.executeQuery();
+//            while(rs.next()){
+//                Hokhau hk = new Hokhau();
+//                hk.setDiachi(rs.getString("diachi"));
+//                hk.setHotenchuho(rs.getString("tenchuho"));
+//                hk.setSohokhau((rs.getString("sohokhau")));
+//                hk.setDiem((rs.getInt("diem")));
+//                hokhau.add(hk);
+//            }
+//            rs.close();
+//        }catch (SQLException ex) {
+//              ex.printStackTrace();
+//        }   
+//        return hokhau;
+//    }
+
 }

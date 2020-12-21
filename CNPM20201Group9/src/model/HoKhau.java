@@ -4,13 +4,13 @@ import java.sql.Date;
 import java.util.ArrayList;
 
 public class HoKhau {
-	private String idHoKhau;
+	private int idHoKhau;
 	private String soHoKhau;
 	private String tenChuHo;
 	private String makhuVuc;
 	private String diaChi;
-	private Date ngayTao;
-	private Date ngayChuyenDi;
+	private java.util.Date ngayTao;
+	private java.util.Date ngayChuyenDi;
 	private String lyDoChuyen;
 	private String nguoiThucHien;
 	private String ghiChu;
@@ -18,7 +18,7 @@ public class HoKhau {
 	
 	private ArrayList<NhanKhau> danhSachNhanKhau;
 	
-	public HoKhau(String idHoKhau, String soHoKhau, String tenChuHo, String diaChi, int diemTichLuy) {
+	public HoKhau(int idHoKhau, String soHoKhau, String tenChuHo, String diaChi, int diemTichLuy) {
 		this.idHoKhau = idHoKhau;
 		this.soHoKhau = soHoKhau;
 		this.tenChuHo = tenChuHo;
@@ -26,11 +26,11 @@ public class HoKhau {
 		this.diemTichLuy = diemTichLuy;
 	}
 
-	public String getIdHoKhau() {
+	public int getIdHoKhau() {
 		return idHoKhau;
 	}
 
-	public void setIdHoKhau(String idHoKhau) {
+	public void setIdHoKhau(int idHoKhau) {
 		this.idHoKhau = idHoKhau;
 	}
 
@@ -66,19 +66,19 @@ public class HoKhau {
 		this.diaChi = diaChi;
 	}
 
-	public Date getNgayTao() {
+	public java.util.Date getNgayTao() {
 		return ngayTao;
 	}
 
-	public void setNgayTao(Date ngayTao) {
+	public void setNgayTao(java.util.Date ngayTao) {
 		this.ngayTao = ngayTao;
 	}
 
-	public Date getNgayChuyenDi() {
+	public java.util.Date getNgayChuyenDi() {
 		return ngayChuyenDi;
 	}
 
-	public void setNgayChuyenDi(Date ngayChuyenDi) {
+	public void setNgayChuyenDi(java.util.Date ngayChuyenDi) {
 		this.ngayChuyenDi = ngayChuyenDi;
 	}
 
@@ -106,13 +106,13 @@ public class HoKhau {
 		this.ghiChu = ghiChu;
 	}
 
-	public ArrayList<NhanKhau> getDanhSachNhanKhau() {
-		return danhSachNhanKhau;
-	}
-
-	public void setDanhSachNhanKhau(ArrayList<NhanKhau> danhSachNhanKhau) {
-		this.danhSachNhanKhau = danhSachNhanKhau;
-	}
+//    public ArrayList<NhanKhau> getDanhSachNhanKhau() {
+//            return danhSachNhanKhau;
+//    }
+//
+//    public void setDanhSachNhanKhau(ArrayList<NhanKhau> danhSachNhanKhau) {
+//            this.danhSachNhanKhau = danhSachNhanKhau;
+//    }
 
 	public int getDiemTichLuy() {
 		return diemTichLuy;

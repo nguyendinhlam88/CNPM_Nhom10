@@ -52,7 +52,7 @@ public class MainLogin extends JFrame {
 	 * Create the frame.
 	 */
 	public MainLogin() {
-		setIconImage(new ImageIcon("images/ios.png").getImage());
+		setIconImage(new ImageIcon("E:\\Users\\Vu\\Desktop\\cnpm\\CNPM_Nhom10\\images\\ios.png").getImage());
 		setBackground(new Color(224, 255, 255));
 		setType(Type.POPUP);
 		setFont(new Font("PT Sans Narrow", Font.PLAIN, 18));
@@ -109,7 +109,8 @@ public class MainLogin extends JFrame {
 		panel.add(lblNewLabel_1);
 		
 		JLabel lbUser = new JLabel("");
-		lbUser.setIcon(new ImageIcon("images/m.png"));
+		lbUser.setIcon(new ImageIcon(getClass().getResource("/images/m.png")));
+                //new javax.swing.ImageIcon(getClass().getResource("/com/project1/image/Danh sách.png"))
 		lbUser.setBounds(97, 53, 30, 35);
 		panel.add(lbUser);
 		
