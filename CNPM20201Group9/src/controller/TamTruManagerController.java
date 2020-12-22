@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controller;
 
 import java.util.ArrayList;
@@ -18,24 +13,18 @@ import services.NhanKhauService;
 import services.TamTruService;
 import java.text.SimpleDateFormat;
 
-/**
- *
- * @author Vu
- */
 public class TamTruManagerController {
     public static String maGiayTamTru;
-    public static String maDinhDanh;    
-
+    public static String maDinhDanh;
     public void setMaGiayTamTru(String magiaytamtru){
         this.maGiayTamTru=magiaytamtru;
     }
-    
     public void setMaDinhDanh(String madinhdanh){
         this.maDinhDanh=madinhdanh;
     }
-    public int themTamTru(String maGiayTamTru, String maDinhDanh, String soDienThoai, 
+    public int themTamTru(String maGiayTamTru, String maDinhDanh, String soDienThoai,
                           Date tuNgay, Date denNgay, String lyDo){
-        TamTruService tamTruService = new TamTruService();        
+        TamTruService tamTruService = new TamTruService();
         TamTru tamTru = new TamTru();
         tamTru.setMaGiayTamTru(maGiayTamTru);
         tamTru.setMaDinhDanh(maDinhDanh);
@@ -50,7 +39,6 @@ public class TamTruManagerController {
             return 0;
         }
     }
-    
     public void capNhatBang(JTable tamTruTable){
         TamTruService tamTruService = new TamTruService();
         NhanKhauService nhanKhauService = new NhanKhauService();
@@ -63,7 +51,6 @@ public class TamTruManagerController {
             df.addRow(new Object[]{i.getMaGiayTamTru(), nhanKhau.getHoTen(), nhanKhau.getDiaChiHienTai(), i.getSoDienThoai(), i.getTinhTrang()});
         }
     }
-    
     public void timKiemTamTru(JComboBox comboboxTimKiem, JTable tamTruTable, String txtKimKiem){
             TamTruService tamTruService = new TamTruService();
             NhanKhauService nhanKhauService = new NhanKhauService();
@@ -102,10 +89,10 @@ public class TamTruManagerController {
                 df.addRow(new Object[]{i.getMaGiayTamTru(), nhanKhau.getHoTen(), nhanKhau.getDiaChiHienTai(), i.getSoDienThoai(), i.getTinhTrang()});
             }
         }
-    
-    public void hienThiChiTiet(JTextField txtMaDinhDanh, JTextField txtHoTen, JTextField txtNgaySinh, 
+
+    public void hienThiChiTiet(JTextField txtMaDinhDanh, JTextField txtHoTen, JTextField txtNgaySinh,
                                JComboBox comboboxGioiTinh, JTextField txtDiaChiHienTai, JTextField txtNgheNghiep,
-                               JTextField txtNoiLamViec, JTextField txtSoCMND, JTextField txtNoiThuongTruTruoc, 
+                               JTextField txtNoiLamViec, JTextField txtSoCMND, JTextField txtNoiThuongTruTruoc,
                                JTextField txtGhiChu, JTextField txtMaGiayTamTru,JTextField txtSoDienThoai,
                                JTextField txtTuNgay, JTextField txtDenNgay, JTextField txtLyDo, JTextField txtTinhTrang){
         TamTruService tamTruService = new TamTruService();
@@ -113,7 +100,6 @@ public class TamTruManagerController {
         SimpleDateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
         TamTru tamTru = tamTruService.timTamTru(maGiayTamTru);
         NhanKhau nhanKhau = nhanKhauService.timNhanKhau("0", tamTru.getMaDinhDanh());
-        
         txtMaDinhDanh.setText(nhanKhau.getMaDinhDanh());
         txtHoTen.setText(nhanKhau.getHoTen());
         txtNgaySinh.setText(fmt.format(nhanKhau.getNgaySinh()));
@@ -124,7 +110,6 @@ public class TamTruManagerController {
         txtSoCMND.setText(nhanKhau.getSoCMND());
         txtNoiThuongTruTruoc.setText(nhanKhau.getNoiThuongTruTruoc());
         txtGhiChu.setText(nhanKhau.getGhiChu());
-        
         txtMaGiayTamTru.setText(maGiayTamTru);
         txtSoDienThoai.setText(tamTru.getSoDienThoai());
         txtTuNgay.setText(fmt.format(tamTru.getTuNgay()));
@@ -132,7 +117,6 @@ public class TamTruManagerController {
         txtLyDo.setText(tamTru.getLyDo());
         txtTinhTrang.setText(tamTru.getTinhTrang());
     }
-    
     public int capNhatTamTru(String maGiayTamTruMoi, String soDienThoai, Date tuNgay, Date denNgay, String lyDo){
         TamTruService tamTruService = new TamTruService();
         TamTru tamTru=tamTruService.timTamTru(maGiayTamTru);
