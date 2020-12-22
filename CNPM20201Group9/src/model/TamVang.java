@@ -11,21 +11,22 @@ import java.util.Date;
  *
  * @author Vu
  */
-public class TamTru {
-    private String maGiayTamTru;
+public class TamVang {
+    private String maGiayTamVang;
     private String maDinhDanh;
-    private String soDienThoai;
+    private String soHoKhau;
+    private String noiTamTru;
     private Date tuNgay;
     private Date denNgay;
     private String lyDo;
     private String tinhTrang;
 
-    public String getMaGiayTamTru() {
-        return maGiayTamTru;
+    public String getMaGiayTamVang() {
+        return maGiayTamVang;
     }
 
-    public void setMaGiayTamTru(String maGiayTamTru) {
-        this.maGiayTamTru = maGiayTamTru;
+    public void setMaGiayTamVang(String maGiayTamVang) {
+        this.maGiayTamVang = maGiayTamVang;
     }
 
     public String getMaDinhDanh() {
@@ -36,12 +37,20 @@ public class TamTru {
         this.maDinhDanh = maDinhDanh;
     }
 
-    public String getSoDienThoai() {
-        return soDienThoai;
+    public String getSoHoKhau() {
+        return soHoKhau;
     }
 
-    public void setSoDienThoai(String soDienThoai) {
-        this.soDienThoai = soDienThoai;
+    public void setSoHoKhau(String soHoKhau) {
+        this.soHoKhau = soHoKhau;
+    }
+
+    public String getNoiTamTru() {
+        return noiTamTru;
+    }
+
+    public void setNoiTamTru(String noiTamTru) {
+        this.noiTamTru = noiTamTru;
     }
 
     public Date getTuNgay() {

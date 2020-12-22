@@ -137,7 +137,7 @@ public class BuoiHopPanel extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				String tenBuoiHop = txtTimKiem.getText().toLowerCase().trim();
-				if(tenBuoiHop.trim().equals("")) JOptionPane.showMessageDialog(null, "Nhập buổi họp để tìm kiếm!");
+				if(tenBuoiHop.equals("")) JOptionPane.showMessageDialog(null, "Nhập buổi họp để tìm kiếm!");
 				else {
 					int n = model.getRowCount();
 					for(int i = n - 1; i >= 0; i--) {
@@ -156,10 +156,8 @@ public class BuoiHopPanel extends JPanel {
 		btnCapNhat.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if(danhSachBuoiHop.size() != model.getRowCount()) {
-					model.setRowCount(0);
-					capNhatBangBuoiHop(model);
-				}
+                            model.setRowCount(0);
+                            capNhatBangBuoiHop(model);
 			}
 		});
 		btnCapNhat.setForeground(new Color(0, 0, 255));
@@ -171,10 +169,14 @@ public class BuoiHopPanel extends JPanel {
 				if(value == -1) JOptionPane.showMessageDialog(null, "Vui lòng chọn buổi họp trong bảng để điểm danh.");
 				else {
 					BuoiHop buoiHop = danhSachBuoiHop.get(value);
-					DiemDanh diemDanh = new DiemDanh(buoiHop, BuoiHopPanel.getInstance(panMainBuoiHop));
-					diemDanh.setVisible(true);
-					setVisible(false);
-					panMainBuoiHop.add(diemDanh);
+                                        if(buoiHop.getTrangThai().equals("Đã diễn ra")) {
+                                            JOptionPane.showMessageDialog(null, "Buổi họp đã diễn ra không thể điểm danh lại !");
+                                        } else {
+                                            DiemDanhPanel diemDanh = new DiemDanhPanel(buoiHop, BuoiHopPanel.getInstance(panMainBuoiHop));
+                                            diemDanh.setVisible(true);
+                                            setVisible(false);
+                                            panMainBuoiHop.add(diemDanh);
+                                    }
 				}
 			}
 		});
@@ -189,7 +191,7 @@ public class BuoiHopPanel extends JPanel {
 	
 	private void capNhatBangBuoiHop(DefaultTableModel model) {
 		for(BuoiHop buoiHop : danhSachBuoiHop) {
-			model.addRow(new Object[] {model.getRowCount(), buoiHop.getMaBuoiHop(), buoiHop.getChuDe(), new SimpleDateFormat("dd/MM/yyyy").format(buoiHop.getThoiGian()), buoiHop.getDiaDiem(), buoiHop.getSoLuong(), buoiHop.getTrangThai()});
+			model.addRow(new Object[] {model.getRowCount() + 1, buoiHop.getMaBuoiHop(), buoiHop.getChuDe(), new SimpleDateFormat("dd/MM/yyyy").format(buoiHop.getThoiGian()), buoiHop.getDiaDiem(), buoiHop.getSoLuong(), buoiHop.getTrangThai()});
 		}
 	}
 }
