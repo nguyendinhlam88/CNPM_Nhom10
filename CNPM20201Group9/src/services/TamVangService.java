@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Vu
+ * @auth
  */
 public class TamVangService {
      public static List<TamVang> layDanhSachTamVang(){
