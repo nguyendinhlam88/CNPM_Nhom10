@@ -1,7 +1,8 @@
 
 # Phần mềm quản lý hộ khẩu, nhân khẩu và buổi họp
 
-**Tóm tắt**: Phần mềm dùng để quản lý:
+**Tóm tắt**: 
+_Phần mềm dùng để quản lý_
 - Hộ khẩu với các chức năng thêm, sửa, tìm kiếm, tách hộ khẩu
 - Nhân khẩu với các chức năng thêm, sửa, tìm kiếm, thống kê, đăng ký tạm trú, tạm vắng
 - Các buổi họp với chức năng thêm buổi họp, tạo file word phục vụ cho in giấy mời
